@@ -1,8 +1,8 @@
 type TaskCardProps = {
   id: number;
-  category: string;
   title: string;
   description: string;
+  category: string;
   assignee: string;
   priority: 'low' | 'medium' | 'high';
 };
