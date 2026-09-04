@@ -86,18 +86,12 @@ const tasks: TaskType[] = [
     assignee: "Grace Lee",
     priority: "low",
     status: "done",
-  }
+  },
 ];
 
-const toDoTasks = tasks.filter(
-  (task) => task.status === "todo"
-);
-const doingTasks = tasks.filter(
-  (task) => task.status === "doing"
-);
-const doneTasks = tasks.filter(
-  (task) => task.status === "done"
-);
+const toDoTasks = tasks.filter((task) => task.status === "todo");
+const doingTasks = tasks.filter((task) => task.status === "doing");
+const doneTasks = tasks.filter((task) => task.status === "done");
 
 const App = () => {
   return (

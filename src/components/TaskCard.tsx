@@ -4,7 +4,7 @@ type TaskCardProps = {
   description: string;
   category: string;
   assignee: string;
-  priority: 'low' | 'medium' | 'high';
+  priority: "low" | "medium" | "high";
 };
 
 const TaskCard = ({
@@ -19,27 +19,18 @@ const TaskCard = ({
       <header className="task-card-header">
         <h3 className="task-card-title">{title}</h3>
 
-        <span className={`task-card-priority ${priority}`}>
-          {priority}
-        </span>
+        <span className={`task-card-priority ${priority}`}>{priority}</span>
       </header>
 
-      <p className="task-card-description">
-        {description}
-      </p>
+      <p className="task-card-description">{description}</p>
 
       <footer className="task-card-footer">
-        <span className="task-card-category">
-          {category}
-        </span>
+        <span className="task-card-category">{category}</span>
 
-        <span className="task-card-person-assigned">
-          {assignee}
-        </span>
+        <span className="task-card-person-assigned">{assignee}</span>
       </footer>
     </article>
   );
 };
 
 export default TaskCard;
-

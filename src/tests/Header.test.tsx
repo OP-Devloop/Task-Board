@@ -15,7 +15,9 @@ describe("Header component", () => {
 
   it("renders the correct description", () => {
     expect(
-      screen.getByText("A simple task board built with React, TypeScript, and components."),
+      screen.getByText(
+        "A simple task board built with React, TypeScript, and components.",
+      ),
     ).toBeInTheDocument();
   });
 });

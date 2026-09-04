@@ -16,8 +16,8 @@ const NewTaskForm = () => {
         description,
         assignee,
         priority,
-        category
-      }
+        category,
+      },
     });
   };
 

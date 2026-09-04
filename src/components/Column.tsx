@@ -5,14 +5,11 @@ type ColumnProps = {
   children: ReactNode;
 };
 
-
 const Column = ({ title, children }: ColumnProps) => {
   return (
     <section className="column">
       <h2>{title}</h2>
-      <div className="column-content">
-        {children}
-      </div>
+      <div className="column-content">{children}</div>
     </section>
   );
 };
