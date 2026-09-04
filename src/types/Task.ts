@@ -1,7 +1,7 @@
 type TaskStatus = "todo" | "doing" | "done";
 type TaskPriority = "low" | "medium" | "high";
 
-export type Task = {
+export type TaskType = {
   id: number;
   title: string;
   description: string;

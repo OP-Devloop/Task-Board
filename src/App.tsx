@@ -2,9 +2,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TaskCard from "./components/TaskCard";
 import Column from "./components/Column";
-import type { Task } from "./types/Task";
+import type { TaskType } from "./types/Task";
+import NewTaskForm from "./components/NewTaskForm";
 
-const tasks: Task[] = [
+const tasks: TaskType[] = [
   {
     id: 1,
     title: "Create login form",
@@ -144,6 +145,10 @@ const App = () => {
               />
             ))}
           </Column>
+        </section>
+        <section className="new-task-form">
+          <h2>Add New Task</h2>
+          <NewTaskForm />
         </section>
       </main>
       <Footer />
