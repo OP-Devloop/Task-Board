@@ -4,6 +4,7 @@ import TaskCard from "./components/TaskCard";
 import Column from "./components/Column";
 import type { TaskType } from "./types/Task";
 import NewTaskForm from "./components/NewTaskForm";
+import { useState } from "react";
 
 const tasks: TaskType[] = [
   {
@@ -89,11 +90,27 @@ const tasks: TaskType[] = [
   },
 ];
 
-const toDoTasks = tasks.filter((task) => task.status === "todo");
-const doingTasks = tasks.filter((task) => task.status === "doing");
-const doneTasks = tasks.filter((task) => task.status === "done");
+
 
 const App = () => {
+  const [taskid, setTaskId] = useState(tasks.length + 1);
+  const [taskState, setTaskState] = useState<TaskType[]>(tasks);
+
+  const toDoTasks = taskState.filter((task) => task.status === "todo");
+  const doingTasks = taskState.filter((task) => task.status === "doing");
+  const doneTasks = taskState.filter((task) => task.status === "done");
+
+  const addNewTask = (newTask: Omit<TaskType, "id" | "status"> & { status?: "todo" | "doing" | "done" }) => {
+    const taskWithIdAndStatus: TaskType = {
+      ...newTask,
+      id: taskid,
+      status: newTask.status || "todo",
+    };
+
+    setTaskState((prevTasks) => [...prevTasks, taskWithIdAndStatus]);
+    setTaskId((prevId) => prevId + 1);
+  };
+
   return (
     <div>
       <Header />
@@ -142,7 +159,7 @@ const App = () => {
         </section>
         <section className="new-task-form">
           <h2>Add New Task</h2>
-          <NewTaskForm />
+          <NewTaskForm onAddTask={addNewTask} />
         </section>
       </main>
       <Footer />

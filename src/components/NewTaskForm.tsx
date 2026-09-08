@@ -1,6 +1,13 @@
 import { useState } from "react";
+import type { NewTaskType } from "../types/Task";
+import type { TaskPriority } from "../types/Task";
 
-const NewTaskForm = () => {
+
+type NewTaskFormProps = {
+  onAddTask: (task: NewTaskType) => void;
+};
+
+const NewTaskForm = ({ onAddTask }: NewTaskFormProps) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");
@@ -10,6 +17,12 @@ const NewTaskForm = () => {
   const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    let priorityTemp: TaskPriority = "low";
+    if (priority === "medium") {
+      priorityTemp = "medium"
+    } else
+      priorityTemp = "high"
+
     console.log({
       "Submitted Task": {
         title,
@@ -18,6 +31,14 @@ const NewTaskForm = () => {
         priority,
         category,
       },
+    });
+
+    onAddTask({
+      title,
+      description,
+      assignee,
+      priority: priorityTemp,
+      category,
     });
   };
 

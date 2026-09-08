@@ -1,5 +1,5 @@
 type TaskStatus = "todo" | "doing" | "done";
-type TaskPriority = "low" | "medium" | "high";
+export type TaskPriority = "low" | "medium" | "high";
 
 export type TaskType = {
   id: number;
@@ -10,3 +10,6 @@ export type TaskType = {
   priority: TaskPriority;
   status: TaskStatus;
 };
+
+
+export type NewTaskType = Omit<TaskType, "id" | "status"> & { status?: TaskStatus };
