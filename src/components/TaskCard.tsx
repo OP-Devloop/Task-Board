@@ -1,18 +1,19 @@
-type TaskCardProps = {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  assignee: string;
-  priority: "low" | "medium" | "high";
-};
+type TaskCardProps = { 
+  id: number; 
+  title: string; 
+  description: string; 
+  category: string; 
+  assignee: string; 
+  priority: "low" | "medium" | "high"; 
+  status: "todo" | "doing" | "done"; };
 
-const TaskCard = ({
-  category,
-  title,
-  description,
-  assignee,
-  priority,
+const TaskCard = ({ 
+  category, 
+  title, 
+  description, 
+  assignee, 
+  priority, 
+  status, 
 }: TaskCardProps) => {
   return (
     <article className={`task-card ${priority}`}>
@@ -26,6 +27,8 @@ const TaskCard = ({
 
       <footer className="task-card-footer">
         <span className="task-card-category">{category}</span>
+
+        <span className={"task-card-status ${status}"}> {status} </span>
 
         <span className="task-card-person-assigned">{assignee}</span>
       </footer>
